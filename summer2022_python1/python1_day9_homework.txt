@@ -1,0 +1,41 @@
+write a small program
+
+if practice
+1. at first we input two numbers and compare which number is bigger
+for example we input 6 ,4 we will print 6 is bigger
+hint we use int(inpuit()) for input
+example 1
+input:
+6
+4
+output:
+6 is bigger
+
+example 2
+input:
+10
+11
+output:
+
+11 is bigger
+
+2. we input a number then it will print from 0 to this number
+
+example 1
+
+input:
+4
+output:
+1
+2
+3
+4
+
+example 2
+
+input:
+2
+output:
+1
+2
+

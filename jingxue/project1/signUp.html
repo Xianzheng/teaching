@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign up</title>
+</head>
+<script>
+  function signUp() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    var password1 = document.getElementById("password1").value;
+
+    console.log(username, password, password1);
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        accept: "application/json",
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+        password1: password1,
+      }),
+    };
+    const url = "http://localhost:3000/POSTSIGNUP/";
+    fetch(url, options)
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+      });
+  }
+</script>
+
+<style>
+  html {
+    height: 100%;
+  }
+
+  body {
+    height: 100%;
+  }
+
+  .container {
+    height: 100%;
+    background-image: linear-gradient(to right, #fbc2eb, #a6c1ee);
+  }
+
+  .login-wrapper {
+    background-color: #fff;
+    width: 358px;
+    height: 488px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    padding: 0 50px;
+  }
+
+  .header {
+    font-size: 38px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 150px;
+  }
+
+  .input-item {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 0;
+    border-bottom: 1px solid rgb(128, 125, 125);
+    outline: none;
+    padding: 10px;
+    font-size: 15px;
+  }
+
+  .btn {
+    width: 100%;
+    background-image: linear-gradient(to right, #fbc2eb, #a6c1ee);
+    border: none;
+    padding: 8px;
+    color: #fff;
+    border-radius: 10px;
+  }
+
+  a {
+    text-decoration-line: none;
+    color: #ABC1EE;
+  }
+
+  .msg {
+    text-align: center;
+    padding: 15px;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <div class="login-wrapper">
+      <div class="header">Sign up</div>
+      <input class="input-item" id="username" placeholder="username" style="display: block; margin: 10px" />
+      <input class="input-item" id="password" placeholder="password" style="display: block; margin: 10px" />
+      <input class="input-item" id="password1" placeholder="confirm password" style="display: block; margin: 10px" />
+      <div class="msg">
+        <button class="btn" onclick="signUp()">Sign up</button>
+        <div style="padding: 15px;">
+          Already have an account?
+          <a style="padding: 10px;" href="http://127.0.0.1:5500/login.html#">Login</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

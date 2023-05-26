@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoginPage</title>
+    <style>
+        *{
+         margin: 0;   
+         padding: 0;
+        }
+        html{
+            height: 100%;
+        }
+        body{
+            height:100%;
+        }
+        .container{
+            height:100%;
+            background-image: linear-gradient(to right, #fbc2eb, #a6c1ee);
+        }
+        .login-wrapper{
+            background-color: #fff;
+            width:358px;
+            height:388px;
+            border-radius: 15px;
+            padding: 0 50px;
+            position:relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .header{
+            font-size: 38px;
+            font-weight: bold;
+            text-align:center;
+            line-height: 200px;
+        }
+
+        .input-item {
+            display:block;/*由一行变成两行*/
+            width: 100%;/*由原来%50一行变成 100%*/
+            margin-bottom: 20px;/*底部增加20px的间隙*/
+            border: 0;/*取消所有边框*/
+            padding: 10px;
+            border-bottom: 1px solid rgb(128, 125, 125);/*定义下边框的颜色*/
+            font-size:15px;/*写上去的字体大小*/
+            outline: none;/*取消鼠标点上去时的黑边*/
+        }
+
+        .btn{
+            width: 100%;/*让button的长度变为100%*/
+            background-image: linear-gradient(to right, #fbc2eb, #a6c1ee);
+            /*给button 一个背景图*/
+            color: #fff;
+            /*让button文字的变为白色*/
+        }
+
+        .msg{
+            text-align: center;
+            margin-top: 10px;
+            
+        }
+
+        a{
+            text-decoration: none;
+            color: #abc1ee
+        }
+    </style>
+    <script>
+        //JS Code
+        function btnOnClick(){
+
+            var name = document.getElementById('uid').value
+            var word = document.getElementById('pass').value
+
+            const userPassPool = [
+                {username : 'mark', password: 'a123'},
+                {username : 'jingxue', password: 'a321'},
+                {username : 'selina', password: 'a456'}
+            ]
+            // alert('button was clicked')
+            // alert('user enter username is '+username)
+            // alert('user enter password is '+password)
+
+            const userEnter = {username : name, password: word}
+            flag = 0
+            userPassPool.forEach((item)=>{
+                console.log(userEnter)
+                console.log(item)
+               
+                if (item.username == userEnter.username && item.password == userEnter.password){
+                    flag = 1
+                }
+                
+            })
+
+            if (flag == 0){
+                alert('not correct')
+            }else{
+                alert('correct')
+            }
+
+            
+
+
+        }
+    </script>
+</head>
+<body>
+    <div class = 'container'>
+        <div class = 'login-wrapper'>
+            <div class = 'header'>
+                Login
+            </div>
+            
+            <div>
+                <input type="text" id = 'uid' placeholder = 'username' class = 'input-item'><!-- 输入框-->
+                <input type = 'password' id = 'pass' placeholder = 'password' class = 'input-item'>
+                <button onclick = "btnOnClick()" class = 'btn'>Login</button>
+            </div>
+
+            <div class = "msg">
+                Don't have accout?
+                <a href = '#'>SignUp</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!--
+    open ending
+
+    design your own Login Page using CSS to modify
+
+    use JS to make Login Page implements its functionality
+-->

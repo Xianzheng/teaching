@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css"></link>
+    <script src="./jsForMain.js"></script>
+</head>
+
+
+<body>
+    <div class="center">
+    <table class="table1">
+        
+        <td  width="100px"><h2>Blog</h2></td>
+        <td  width="100px"><input placeholder="type your blog"></td>
+        <td  width="100px"><h3>Experience</h3></td>
+        <td  width="100px"><h3>Contact</h3></td>
+        <td><button width="100px" onclick="showblog()">add</button></td>
+        <td><button width="100px" onclick="openchangepassword()">Change password</button></td>
+        
+        <td  width="900px"></td>
+        <td  width="100px"><button onclick="logout()" id="userbtn2">Logout</button></td>
+        <td  width="100px"><button onclick="makeshow()" id="userbtn1">user</button></td>
+    </table>
+    <h6></h6>
+    
+    <table >
+        <div id="showBlogs" class="blogdiv">
+                
+        </div>
+    </table>
+    
+    <h8></h8>
+    <table class="table2">
+        <td width="200px">
+        <div width="200px" class="div1" id="add1">
+            <h1>Blog:</h1>
+            <input placeholder="title" id="bloginp">
+            <textarea rows="20" cols="30" id="bloginp1"></textarea>
+            <button id="blogsubmit" onclick="getblog()">submit</button>
+        </div>
+        </td>
+        <td  width="700px">
+
+        </td>
+        
+        <td  id="info">
+            
+            <div width="300px" id="userDiv3" class="info">
+                
+                <h3 id="user">Name:</h3>
+                <h3 id="nick">Nickname:</h3>
+                <h3 id="occ">Occupation:</h3>
+                <h3 id="add">Address:</h3>
+                <h3 id="hob">Hobby:</h3> <!--THis goes to the other div input also remove this input-->
+                <h6></h6>
+            </div>
+            <div width="250px" class="div1" id="userDiv2" >
+
+                <input placeholder="Username" class="inpinfo" id="inp">
+                
+                <input placeholder="old password" class="inpinfo1" id="inp1">
+                
+                <input placeholder="new password" class="inpinfo2" id="inp2">
+                <button class="inpinfo3" onclick="changepass()">Confirm</button>
+            </div>
+        </td>
+        <td  width="250px" >
+            <div class="div1" id="userDiv1">
+                <h3>Name:</h3><input id="userinp">
+                <h3>Nickname:</h3><input id="nickinp"><!--THis goes to the other div under-->
+                <h3>Occupation:</h3><input id="occinp">
+                <h3>Address:</h3><input id="addrinp">
+                <h3>Hobby:</h3><input id="hobinp">
+                
+                <button id="submit" onclick="profile()">submit</button>
+                
+    
+            </div>
+        </td>
+    </table>
+    <h6></h6>
+    </div>
+    
+
+</body>
+</html>
+<!--
+    change the js from login make a file and make a style file for login page same for signup
+    make the change password page
+
+-->
+<!--
+    homework: make the button show the username from login, implement change password code, whole thing. Frontend and backend.
+-->
+<!--
+    homework:reverse the two things in main page, connect databbase and that username is automatic, same as the one in user db also add name
+-->
+<!--
+    homework: design change password page and design main page better using my creativity
+-->

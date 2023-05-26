@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        html{
+            height: 100%;
+        }
+        body{
+            height:100%
+        }
+        .container{
+            height:100%;
+            background-image:linear-gradient(to right,#fbc2eb,#a6c1ee) ;
+        }
+        .login-wrapper{
+            background-color: white;
+            width: 350px;
+            height: 580px;
+            border-radius: 15px;
+            padding: 0 50px;
+            position: relative;
+            left:50%;
+            top:50%;
+            transform: translate(-50%, -50%);
+        }
+        .header{
+            font-size: 38px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 200px;
+        }
+        
+        .input-Item{
+            display:block;
+            width:100%;
+            margin-bottom: 20px;
+            border: 0;
+            padding: 10px;
+            border-bottom: 1px solid rgb(128,125,125);
+            font-size: 15px;
+            outline:none
+        }
+        .submit{
+            width:100%;
+            text-align: center;
+            border: solid purple;
+        }
+        .returnsignup{
+            font:bold;
+            font-size: 25px;
+            padding: 10px;
+            text-align: center;
+            margin-top: 30px;
+            color: lightcyan;
+            width: 100%;
+            background-image:linear-gradient(to right,#fbc2eb,#a6c1ee) ;
+        }
+        .btn{
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            margin-top: 40px ;
+            background-image:linear-gradient(to right,#fbc2eb,#a6c1ee) ;
+            color: white;
+        }
+        .signup{
+            color: lightcyan;}
+
+        .signup:hover{
+            color: rgba(0, 0, 255, 0.779);
+            text-decoration-color: blue;
+            font-size: larger;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <!---<input placeholder="username">
+    <input placeholder="password">
+    <button>submit</button>-->
+    <div class="container">
+        <div class="login-wrapper">
+            <div class="header">Login</div>
+            <div class="form-wrapper">
+                <input type="text" name='username' placeholder="username" class="input-Item">
+                <input type="password" name="password" placeholder="password" class="input-Item">
+                <div class="btn">Login</div>
+                <div class="returnsignup">
+                Don't have an account?
+                <a href="signupdemo.html" class="signup"> Sign up</a>
+            </div>
+            </div>
+        </div>
+    </div>
+   
+</body>
+</html>
+
+<!--
+    homework: add password, username and return, and submit, and return to create account on login page(main one)
+-->
+
+<!--
+    Finish demo design on this website using picture, the dont have account?sign up is just a text, put in bold.
+    then create a new sign up page like this format
+-->

@@ -1,0 +1,9 @@
+homework:
+
+     /*
+  check userInfo.db 
+    if username from req.db exists in userInfo, 
+      we need to edit this user's info
+    if username from req.db exists in userInfo,
+      we just need to insert user's info in userInfo.db
+  */

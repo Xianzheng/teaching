@@ -1,0 +1,45 @@
+
+In my experience, data sent using fetch are not located inside request.
+POST but rather inside request.body. 
+There are then cases where the received data is in byte so you will need to decode it first.
+I suggest that you do this first:
+
+fetch post data 不在request.POST里
+
+<script>
+    
+    const options = {
+           method: "POST",
+
+           headers: {
+            "Content-Type": "application/json",
+            
+            
+            },
+            body: JSON.stringify({username:'mark'})
+        };
+
+           
+           
+       
+
+       fetch("http://localhost:8000/app/postData/",options)
+       .then(res => res.json())
+       .then(res => {
+        console.log(res)
+       })
+   </script>
+    
+
+def postData_view(request):
+    
+    if request.method == 'POST':
+        post_data = json.loads(request.body.decode("utf-8"))
+        
+        print(post_data)
+        
+        return HttpResponse(json.dumps('success'))
+
+
+
+

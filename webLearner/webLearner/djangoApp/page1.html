@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>post page</title>
+    <style>
+        .google{
+            margin-bottom: 1000px;
+        }
+        .congrats{
+            float: left;
+        }
+        .para{
+            color: chartreuse;
+        }
+        .title{
+            color:blue;
+        }
+    </style>
+    <script>
+        function submit_function(){
+            const t = document.getElementById('title').value
+            const c = document.getElementById('content').value
+            const options = {
+                method : 'POST',
+                headers : {
+                    'Content-Type' : 'application/json',
+                    'Accept': 'application/json'
+                },
+                body:JSON.stringify({title:t,content:c})
+                
+            }
+            const url = 'http://localhost:8000/postblog'
+            fetch(url,options)
+            .then(res => res.json())
+            .then(res => {
+                console.log(res)
+            })
+        }
+    </script>
+</head>
+<body>
+    <!-- <h1 class="title">Login Success</h1>
+    <p class="para">Congrats you logged in to your account</p>
+    <img  class="congrats" src="congrats.jpeg">
+    <a href="https://www.google.ca/" class="google">Click here to go to google</a> -->
+    <div>
+        <input id = 'title' placeholder="Title" style="display:block">
+        <textarea  id = 'content' rows = 5, cols = 20 style="display:block"> </textarea>
+        <input onclick = 'submit_function()' type = 'submit' style="display:block"></div>
+    </div>
+</body>
+</html>
+<!--
+    Homework:
+    check phone image,
+    design this page with title, what it is, imag and article
+    and when fetch is activated it moves to this
+    min:3 blocks
+-->

@@ -1,0 +1,33 @@
+invoke the terminal: shift + ctrl + ~
+create virtual environment: python -m venv [name]
+enter the virtual environment: .\djangoVenv\Scripts\activate
+install django to djangoVenv: pip install django
+----------------we already set up our  virtual environment----------------
+use django to create website: django-admin startproject [name]
+enter the web folder: cd [names]
+run website: python manage.py runserver
+end the server: ctrl + c
+make migrations: python manage.py migrate
+make app(application): python manage.py startapp [name]
+put app to main framework, come to [names]/settings.py in settings.py add [name],
+    to INSTALLED_APP 
+
+URL : http://127.0.0.1:8000/path
+
+    http://127.0.0.1 -> domain
+    :8000 -> port
+    /path
+
+make a new url: create url.py under app, content we copy from Test1.urls.py
+make a new path: path('hello/',hello_view)
+
+build a path http:127.0.0.1/app/saySomething -> Today is a tired day
+
+add template: we should go to settings add 
+
+    import os
+    in TEMPLATES we need to add 'DIRS': [os.path.join(BASE_DIR,'templates/')],
+    return render(request,'hello.html')
+
+# recreate your website, you can create content by imagenation ,
+# you need to have url.py views.py and templates,['apple','banana',cherry]

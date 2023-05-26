@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .blog{
+            width:400px;
+            height:600px;
+            border: 1px solid black;
+        }
+        .textarea{
+            width:400px;
+            height:600px;
+        }
+        .time{
+            width:400px;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        function GetQueryString(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if(r != null) return decodeURI(r[2]);
+			return null;
+		}
+        
+        var idofthisblog=GetQueryString('id')
+        function sendId(){
+            const options={
+            method:'POST',
+            headers:{
+            'Content-Type':'application/json',
+            'Accept':'Application/json'
+            },
+            body:JSON.stringify(idofthisblog)
+        }
+        const url= 'http://localhost:8000/bloginfo/'
+        fetch(url,options)
+        .then(res=>res.json())
+        .then(res=>{
+            console.log(res)
+            title=res['title']
+            data=res['blogdata']
+            time=res['time']
+            document.getElementById("title").innerText=title
+            document.getElementById("data").value=data
+            document.getElementById("time").innerText=time
+
+    })  
+        }
+        window.onload=sendId
+        console.log(GetQueryString('id'))
+        function saveData(){
+            var dataupdated=document.getElementById("data").value
+            var newtitle=document.getElementById("newtitle").value
+            var data={datasent:dataupdated,id:idofthisblog,title:newtitle}
+                const options={
+                method:'POST',
+                headers:{
+                'Content-Type':'application/json',
+                'Accept':'Application/json'
+                },
+                body:JSON.stringify(data)
+            }
+            const url= 'http://localhost:8000/updateBlog/'
+            fetch(url,options)
+            .then(res=>res.json())
+            .then(res=>{
+                console.log(res)
+            })
+        
+            //hw:do delete button(deletes the whole blog from database)
+            //hw: create a id next to the title(to the right of it) so that it can also change the title as well if there is anything in the input
+        }
+        
+        function deleteBlog(){
+        window.location.href='mainPage.html'
+            const options={
+            method:'POST',
+            headers:{
+            'Content-Type':'application/json',
+            'Accept':'Application/json'
+            },
+            body:JSON.stringify(idofthisblog)
+        }
+        const url= 'http://localhost:8000/deleteBlog/'
+        fetch(url,options)
+        .then(res=>res.json())
+        .then(res=>{
+            console.log(res)
+        })
+        
+        }
+    
+        //hw: use different key id to connect with backend
+        //hw: get backend data and render the data (to console)
+
+        
+    </script>
+</head>
+<body>
+    <a href="mainPage.html">Return</a>
+    
+    <h1 id="title">Blog detail</h1><input id="newtitle">
+    <div class="blog">
+    <textarea class="textarea" id="data">Blog paragraph</textarea>
+    </div>
+    <h3 class="time" id="time">time</h3>
+    <button onclick="saveData()">Save</button>
+    <button onclick="deleteBlog()">Delete</button>
+    
+</body>
+</html>
+<!--
+    homework:
+    design this page to look like the one in admin, i have a picture of the design in my phone 
+    also remember to do the class to make the <a> from the main page move right instead of down
+-->

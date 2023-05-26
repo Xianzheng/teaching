@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function EDITUSER() {
+          var username = localStorage.getItem('username')//直接从缓存池拿去的username
+          var nickname = document.getElementById("Nickname").value;
+          var job = document.getElementById("Job").value;
+          var hobby = document.getElementById("hobby").value;
+          // console.log('EDIT USER',username,nickname,job,hobby)
+          
+          const options = {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json",
+                  accept: "application/json",
+              },
+              body: JSON.stringify({
+                  Username: username,
+                  Nickname: nickname,
+                  Job: job,
+                  Hobby: hobby,
+              }),
+          };
+          const url = "http://localhost:3000/EDITUSER/";
+          fetch(url, options)
+              .then((res) => res.json())
+              .then((res) => {
+                  window.location.href = 'mainPage.html'
+                  console.log(res);
+
+              });
+      }
+  </script>
+
+  </head>
+
+  <body>
+    <a href = "mainPage.html">go back<a>
+    <h1 style="text-align: center">Edit User</h1>
+
+    <div style="border: 1px solid; width: 200px; margin: 0 auto">
+      <input
+        id="Nickname"
+        placeholder="Nickname"
+        style="display: block; margin: 10px"
+      />
+      <input id="Job" placeholder="Job" style="display: block; margin: 10px" />
+      <input
+        id="hobby"
+        placeholder="hobby"
+        style="display: block; margin: 10px"
+      />
+      <button onclick = "EDITUSER()"style="margin: 10px">Submit</button>
+    </div>
+  </body>
+</html>

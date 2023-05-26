@@ -1,0 +1,15 @@
+HW：
+
+Make your own greedy snack,
+
+1. you  can design the size and color of
+your snack, should be different with class
+demo
+
+2. you need to make your snack move constantly
+
+3. snack needs to have head and tail, they get different color
+
+suggest: scratch by your self first then see my demo
+
+after finish send me email to mark.ffang@gmail.com

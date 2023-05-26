@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .div1{
+        
+        height: 900px;
+        width: 900px;
+        margin:0 auto;
+        border: 1px solid black
+    }
+    .wordmid{
+        margin-left: 45%;
+    }
+    .inpmid{
+        margin-left: 38%;
+        margin-top: 15px;
+        width: 200px;
+        height: 30px;
+    }
+    .buton{
+        margin-left: 46.5%;
+        margin-top: 15px;
+    }
+
+</style>
+    <script>
+    function signup(){
+        const newuser=document.getElementById("newuser").value
+        const newpass=document.getElementById("newpass").value
+        const confirmpass=document.getElementById("passconfirm").value
+        const data={newuser:newuser,newpass:newpass}
+        console.log("^(?=.*[a-z])")
+        lnewpass=newpass.length
+        lnewuser=newuser.length
+        var upper=0
+        var lower=0
+        var userupper=0
+        
+        for (var i = 0; i<lnewpass; i++){
+            if (newpass[i]===newpass[i].toUpperCase()){
+                upper++
+            }else if (newpass[i]===newpass[i].toLowerCase()){
+                lower++
+            }
+        }
+        console.log(upper,lower)
+        const options={
+            method:'POST',
+                headers:{
+                    'Content-Type':'application/json',
+                    'Accept':'Application/json'
+                },
+                body:JSON.stringify({data})
+            }
+        if (lnewuser>=5){
+        if (newpass == confirmpass){
+            if(upper>=1){
+                if(lower>=1){
+                    if (lnewpass>=8){
+                        
+                        console.log(data)
+                        const url='http://localhost:8000/signUp/'
+                        fetch(url,options)
+                        .then(res=>res.json())
+                        .then(res=>{
+                            console.log(res)
+                            if (res=='success'){
+                                alert('You have successfully created a account')
+                            }
+                            else{
+                                alert('Someone already has the same username that you placed')
+                            }
+                            
+                    
+                    
+                    
+                        
+            })}else{
+                alert('Your password is not 8 characters')
+            }   
+        }   else{
+                    alert('You need at least a lowercase for your password')
+            }
+
+        }   else{
+            alert('You need at least a uppercase for your password')
+        }
+
+        }else {
+            alert('Not the same password')
+        }
+        
+    }else{
+        alert('Your username is not 5 characters')
+    }
+    
+        
+        
+        
+        
+    }
+</script>    
+<body>
+    <div class="div1">
+        <h1 class="wordmid">SignUp</h1>
+        <input class="inpmid" placeholder="Username" type="User" id="newuser">
+        <input class="inpmid" placeholder="Password" type="Password" id="newpass">
+        <input class="inpmid" placeholder=" Confirm Password" type="Password" id="passconfirm">
+        <button class="buton" onclick="signup()">Submit</button>
+        <a href="./login.html">Login area</a>
+    
+    </div>
+</body>
+</html>
+<!--
+    Homework:add a fetch post and get so that it can transport data,
+-->
+<!--
+    Homework:finish the class work and get difference between get and filter for django userdb.objects.filter() userdb.objects.get()
+    we must finish the code in views so taht if there is already a username
+    the same then alert same username already there else alert created username successfully
+-->

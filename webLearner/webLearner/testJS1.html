@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS one</title>
+    <script>
+        /*
+        var x = 5
+        var y = 6
+        var z = true
+        var array = ['Kevin','Mark','Selina']
+        console.log(array)
+        console.log(typeof(array))//type(array)
+        var dic1 = {name1:'Kevin',name2:'Mark',name3:'Selina'}
+        console.log(dic1)
+        console.log(dic1.name1) //dic['name1']
+
+        //if statement
+        if (false){
+            console.log('it is true')
+        }else{
+            console.log('it is false')
+        }
+        //while loop
+        var i = 0
+        while (i < 10){
+
+            i += 1
+            console.log(i)
+        }
+        */
+        //for loop
+        // for(var i=0;i < 10;i++){ // for i in range(10)
+        //     console.log(i)
+        // }
+        // var i = 0
+        // do{
+        //     //statement
+        //     i += 1
+        //     console.log(i)
+        // }while(i < 10);
+        function check(){
+            var a = document.getElementById('useranswer').value
+            var ans = 0
+            var i = 0
+            while (i < 10){
+                i += 1
+                ans += i
+            }
+            
+            console.log(ans)
+            if (ans == a){
+                document.getElementById('judge').innerText = 'correct'
+            }else{  
+                document.getElementById('judge').innerText = 'incorrect'
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+    <p>what is answer for 1 + 2 + 3 + ... + 10</p>
+    <input id = 'useranswer'type = 'input' value="" name = ''></input>
+    <button onclick ='check()' >submit</button>
+    <p id = 'judge'></p>
+</body>
+</html>

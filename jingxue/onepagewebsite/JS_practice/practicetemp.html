@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>PracticeTemp</title>
+</head>
+
+<body>
+    <button onclick="showParagraph(1)">Button 1</button>
+    <button onclick="showParagraph(2)">Button 2</button>
+
+    <p id="btn1">This is the paragraph for Button 1</p>
+    <p id="btn2">This is the paragraph for Button 2</p>
+
+    <script>
+        function showParagraph(btnNum) {
+            document.getElementById('btn1').style.display = 'none';
+            document.getElementById('btn2').style.display = 'none';
+
+            document.getElementById('btn' + btnNum).style.display = 'block';
+
+            localStorage.setItem('selectedBtn', btnNum);
+        }
+
+        const showbtn = localStorage.getItem('selectedBtn');
+        if (showbtn) {
+            showbtn(showbtn);
+        }
+    </script>
+</body>
+
+</html>

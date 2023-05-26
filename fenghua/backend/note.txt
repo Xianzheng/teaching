@@ -1,0 +1,7 @@
+pip install django
+
+create django: django-admin startproject backend
+
+create app: python manage.py runserver
+
+bind app with django: add 'server' to INSTALLED_APPS

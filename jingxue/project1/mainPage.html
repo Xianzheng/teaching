@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+        var username = localStorage.getItem('username')//登陆后读取缓存里存入的用户名
+        // console.log('logged user\'s username is', username)
+        function editUser(){
+            window.location.href = "editUser.html";
+
+        }
+        function LOGOUT(){
+            // console.log('hello jingxue')
+            localStorage.removeItem("username")
+            window.location.href = "login.html";
+        }
+        function addBlog(){
+          window.location.href = "addBlog.html";
+        }
+
+        // console.log(username, password);
+      const options = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          accept: "application/json",
+        },
+        body: JSON.stringify({
+          Username: username,
+        }),
+      };
+      const url = "http://localhost:3000/getUserInfo/";
+      fetch(url, options)
+        .then((res) => res.json())
+        .then((res) => {
+          //get result
+          document.getElementById('nickSpan').innerHTML = 'Nickname  :' +res.Nickname
+          document.getElementById('jobSpan').innerHTML = 'Job   :' +res.Job
+          document.getElementById('hobbySpan').innerHTML = 'Hobby  :' +res.Hobby
+        });
+
+        function auto(){
+          // console.log('hello1')
+          var username = localStorage.getItem('username')
+          const options = {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              accept: "application/json",
+            },
+            body: JSON.stringify({
+              Username: username,
+            }),
+          };
+          console.log('hello2')
+          const url = "http://localhost:3000/loadBlog/";
+          fetch(url, options)
+          .then((res) => res.json())
+          .then((res) => {
+            //get result
+            res.mes.forEach(element => {
+              ele = document.getElementById('loadBlog')
+              addTag = document.createElement('a')
+              addTag.style.textAlign = 'center'
+              addTag.style.display = 'block'
+              addTag.setAttribute('href','detail.html?id='+element._id)
+              addTag.innerHTML = element.tile
+              ele.append(addTag)
+              console.log(element.tile)
+            });
+          
+        });
+
+          // var em = document.createElement('h5')
+          // em.style.textAlign = 'center'
+          // em.innerHTML = 'hello'//<h5 style = 'text-align：center'>hello</h5>
+          
+          // document.getElementById('loadBlog').appendChild(em)
+        }
+        //when mainPage was loaded, the auto function will be invoke
+        window.onload = auto
+    
+
+
+    </script>
+
+    <style>
+      html{
+      height: 100%;
+      }
+      body{
+        height:100%;
+        background-color: yellow;;
+      }
+      a{
+        text-decoration: none;
+        color:#abc1ee;
+      }
+      a:hover{
+        font-size: larger;
+      }
+
+      .container{
+        background-color: coral;
+      }
+    </style>
+  </head>
+  <body>
+    <div class = "container">
+      <div style = "border: 1px solid ; width: 100px; text-align: center; float: left;border-radius:8px">
+          <h3>MyBlog</h3>
+      </div>
+
+      <div style = "border: 1px solid; width: 100px; float: left; margin: 25px; text-align: center; ">
+          <a href= "#" onclick = "LOGOUT()">logout</a>
+      </div>
+
+      <div style = "border: 1px solid; width: 100px; float: left; margin: 25px; text-align: center; ">
+        <a href= "#" onclick="addBlog()">addBlog</a>
+      </div>
+
+      <div style = "width:700px; margin-left: 200px">
+
+        <div style = "height: 400px; width:250px; border: 1px solid; float: right">
+            <div style ="width: 80px; margin: 0 auto">
+                <h5>User Center</h5>
+            </div>
+
+            <div  style ="width: 125px; margin: 0 auto">
+                <span id = 'nickSpan'>Nickname: ###</span>
+                <span id = 'jobSpan'>Job: ###</span>
+                <span id = 'hobbySpan'><Hobby: ###</spa>
+            </div>
+
+            <div  style ="width: 125px; margin: 0 auto">
+                <button onclick = 'editUser()'>edit</button>
+                <button>changePass</button>
+            </div>
+            
+        </div>
+
+        <div style = "position:absolute ;top: 100px; left:50px; width:250px;
+        height:400px; border: 1px solid;">
+          
+          <h5 style = "text-align: center;">Blog</h5>
+          <div id = 'loadBlog'style = "margin:20px; height: 300px; border:1px solid" >
+            
+          </div>
+        </div>
+
+        </div>
+
+      </div>
+
+</html>

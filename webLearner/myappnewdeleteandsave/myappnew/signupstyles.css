@@ -1,0 +1,20 @@
+.div1{
+        
+    height: 900px;
+    width: 900px;
+    margin:0 auto;
+    border: 1px solid black
+}
+.wordmid{
+    margin-left: 45%;
+}
+.inpmid{
+    margin-left: 38%;
+    margin-top: 15px;
+    width: 200px;
+    height: 30px;
+}
+.buton{
+    margin-left: 46.5%;
+    margin-top: 15px;
+}

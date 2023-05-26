@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //below is js content
+        function TEST() {
+            console.log('it works')
+            var inp = document.getElementById('inp').value
+            console.log(inp)
+            var ele = document.getElementById('bigger')
+            ele.innerHTML = inp
+            
+            //document.getElementById()//argument must be a existed id
+
+            //in html document, all contents are elements, it can be got 
+
+            //INNER HTML IS SOMETHING BETWEEN TAG
+        }
+    </script>
+</head>
+<body>
+    <input id = 'inp'/>
+    <button onclick = 'TEST()'>submit</button>
+    <h1 id = 'bigger'></h1>
+</body>
+</html>

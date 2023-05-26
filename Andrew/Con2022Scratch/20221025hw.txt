@@ -1,0 +1,10 @@
+homework
+
+design two more level, level 3
+level 4
+
+leve3: if  10 < score < 15 come to level3, switch to level3's background
+
+leve4: if 15 < score < 20
+come to level4
+switch to level4's background

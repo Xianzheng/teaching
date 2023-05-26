@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homework</title>
+    <!--  the content of style is css content  -->
+    <style>
+        .divider{
+            border: 1px solid;
+            margin-right: 60%;
+            border-radius:10px;
+        }
+        .input1{
+            margin-top:5px;
+            display:block;
+            margin-bottom:5px;
+            margin-left: 10px
+        }
+        .button{
+            display:block;
+            margin-bottom:10px;
+            margin-left: 10px;
+        }
+  </style>
+    <!--  the content between script is content of javascript  -->
+    <script>
+
+        //print('hello world')
+        console.log('hello world')
+
+        //how to let page knows sign up button was clicked
+        //create a function, binds this function with button
+        // when button was clicked, invoke this function
+
+        //how to let page knows what user types in password input fild
+
+        function CLICK(){//create a function
+            alert('sign up button was clicked')
+
+            var password = document.getElementById('passInput').value
+
+            console.log('user types password is',password)
+
+            //check whether password and confirm are equal
+
+            var confirm = document.getElementById('confirmInput').value
+
+            console.log('user types confirm is',confirm)
+
+            if ( password == confirm) {
+                alert('password and confirm are equal')
+            }else {
+                alert('they are not')
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+
+<div class = 'divider'>
+<h5 style = 'margin-left:20px'>sign up</h5>
+<input class = 'input1' placeholder = 'username' type = 'text'>
+<input id = 'passInput' class = 'input1' placeholder = 'password' type = 'password'>
+<input id = 'confirmInput' class = 'input1' placeholder = 'confirm' type = 'password'>
+<button class = 'button' onclick="CLICK()">sign up</button>
+</div>
+
+</body>
+</html>
+
+<!--homework: when  user click login , it will alert what user types username , what user types password-->

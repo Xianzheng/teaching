@@ -1,0 +1,7 @@
+hw:
+
+add a paddle to screen,
+
+snack can not touch paddle,
+
+if he did, the game over

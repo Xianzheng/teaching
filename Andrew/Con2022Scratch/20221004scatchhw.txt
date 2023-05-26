@@ -1,0 +1,7 @@
+homework:
+
+create another paddle, snack still can not touch it, if he did gameovr,
+
+make sure, apple can not show in the edge,
+
+hide taillength bar, speedbar, only show score bar

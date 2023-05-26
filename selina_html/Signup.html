@@ -1,0 +1,121 @@
+<script>
+
+    function CLICK(){
+
+            console.log('login button was clicked')
+
+            const uid = document.getElementById('uid').value
+
+            const pwd = document.getElementById('pwd').value
+
+            const option = {
+
+                method :'POST',
+
+                headers: {
+
+                    "Content-type":'application/json',
+
+                    accept:'application/json',
+
+                },
+
+                body: JSON.stringify({
+
+                    uid: uid,
+
+                    pwd: pwd,
+
+                })
+
+            }
+
+            const url = 'http://127.0.0.1:3001/login/'
+
+            fetch(url,option)
+
+            .then(res => res.json())
+
+            .then(res => {
+
+                console.log(res)
+
+            })
+
+        }
+
+  </script>
+
+ 
+
+ <style>
+
+  .inp1Class{
+
+    display: block;
+
+    margin: 15px;
+
+  }
+
+  .inp2Class{
+
+    display: block;
+
+    margin: 15px;
+
+  }
+
+ 
+
+  .buttonClass{
+
+    margin-left: 15px;
+
+  }
+
+  .container{
+
+    border: 1px solid;
+
+    width: 200px;
+
+    height: 200px;
+
+    margin: 20% auto;
+
+  }
+
+  h5{
+
+    margin-left: 15px;
+
+  }
+
+ </style>
+
+ 
+
+</head>
+
+<body>
+
+<div class = 'container'>
+
+  <h5>Login</h5>
+
+  <input id = 'uid' class = 'inp1Class' placeholder="username"/>
+
+  <input id = 'pwd' class = 'inp2Class' placeholder = "password" type = "password"/>
+
+  <button class = 'buttonClass' onclick = "CLICK()">submit</button>
+
+</div>
+
+ 
+
+</body>
+
+</html>
+
+ 

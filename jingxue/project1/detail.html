@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var url = window.location.href;
+      var id = url.split("=")[1];
+      console.log(id);
+      window.onload = auto
+      function auto(){
+        const options = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    accept: "application/json",
+                },
+                body: JSON.stringify({
+                    _id:id
+                }),
+            };
+            const url = "http://localhost:3000/FINDDETAIL/";
+            fetch(url, options)
+                .then((res) => res.json())
+                .then((res) => {
+                    
+                    var title = res.mes[0].tile
+                    var content = res.mes[0].content
+                    console.log(title)
+                    document.getElementById('titleId').value = title
+                    document.getElementById('contentId').value = content
+                });
+            }
+            function deleteBlog(){
+                const options = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    accept: "application/json",
+                },
+                body: JSON.stringify({
+                    _id:id
+                }),
+            };
+            const url = "http://localhost:3000/deleteBlog/";
+            fetch(url, options)
+                .then((res) => res.json())
+                .then((res) => {
+                    
+                    window.location.href = 'mainPage.html'
+                });
+            }
+
+            function updateBlog() {
+                const title = document.getElementById('titleId').value
+                const content = document.getElementById('contentId').value
+                console.log(title,content)
+                const options = { 
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    accept: "application/json",
+                  },
+                  body: JSON.stringify({
+                    _id: id,
+                    tile:title,
+                    content:content,
+                  }),
+                };
+                const url = "http://localhost:3000/updateBlog/";
+                fetch(url, options)
+                  .then((res) => res.json())
+                  .then((res) => {
+                    
+                    window.location.href = 'mainPage.html'
+                  });
+              }
+
+    </script>
+  </head>
+  <body>
+    <a href="mainPage.html">go back</a>
+    <div style="height: 300px; width: 300px; border: 1px solid; margin: 0 auto">
+      <h1 style="text-align: center;">Detail</h1>
+      <input id = 'titleId'placeholder="title" style="display: block; margin: 0 auto" />
+      <div style= "width : 150px; margin:20px auto">
+      <textarea
+        id = 'contentId'
+        placeholder="content"
+        style="width: 150px; min-height: 100px; margin: 0 auto"
+      ></textarea>
+      </div>
+      <div style="width:150px ;margin: 0 auto">
+        <button onclick="updateBlog()"  style = "margin-right: 20px;">update</button>
+        <button onclick = "deleteBlog()">delete </button> 
+      </div>
+    </div>
+  </body>
+</html>
+
+
+<!-- homework:
+
+implements the update functionality -->

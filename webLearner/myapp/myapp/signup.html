@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .div1{
+        
+        height: 900px;
+        width: 900px;
+        margin:0 auto;
+        border: 1px solid black
+    }
+    .wordmid{
+        margin-left: 45%;
+    }
+    .inpmid{
+        margin-left: 38%;
+        margin-top: 15px;
+        width: 200px;
+        height: 30px;
+    }
+    .buton{
+        margin-left: 46.5%;
+        margin-top: 15px;
+    }
+
+</style>
+    <script>
+    function signup(){
+        const newuser=document.getElementById("newuser").value
+        const newpass=document.getElementById("newpass").value
+        const data={newuser:newuser,newpass:newpass}
+        console.log(data)
+        const options={
+            method:'POST',
+                headers:{
+                    'Content-Type':'application/json',
+                    'Accept':'Application/json'
+                },
+                body:JSON.stringify({data})
+            }
+        const url='http://localhost:8000/signUp/'
+        fetch(url,options)
+            .then(res=>res.json())
+            .then(res=>{
+                console.log(res)
+                
+            })
+        
+    }
+</script>    
+<body>
+    <div class="div1">
+        <h1 class="wordmid">SignUp</h1>
+        <input class="inpmid" placeholder="Username" type="User" id="newuser">
+        <input class="inpmid" placeholder="Password" type="Password" id="newpass">
+        <button class="buton" onclick="signup()">Submit</button>
+    
+    </div>
+</body>
+</html>
+<!--
+    Homework:add a fetch post and get so that it can transport data,
+-->

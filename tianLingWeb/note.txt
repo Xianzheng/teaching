@@ -1,0 +1,21 @@
+# shift + ctrl + -> invoke terminal
+# ctrl + s -> save
+# create virtual environment: python -m venv venv
+
+## activate virtual environment: .\venv\Scripts\activate
+
+# install django: pip install django 
+
+# create django project: django-admin startproject [projectName]
+
+come to django folder: cd [projectName]
+
+# run django: python manage.py runserver
+
+# create django app: django-admin startapp [appName]
+
+#close server: ctrl + c
+
+# migrate data to work properly: python manage.py migrate
+
+# create super user:python manage.py createsuperuser

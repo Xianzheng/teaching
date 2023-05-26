@@ -1,0 +1,9 @@
+base your understanding, write your own greedy snack,
+
+there are three paddles in screen
+
+snack can not touch paddle, edge
+
+apple will not touch with paddle edge
+
+variable scores show how many apple was ate

@@ -1,0 +1,12 @@
+in the demo,
+
+which factor determines the speed of snack moving
+
+which factor determines the length of snack tail
+
+how the length of snack increasing,(base on programming)
+
+make you own snack follow your last one:
+
+when snack eats apple , apple goes different position, 
+the length of snack increasing

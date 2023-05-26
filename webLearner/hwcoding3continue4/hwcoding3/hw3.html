@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="body">
+    <style>
+        .titlelogin{
+            margin-left:40.5%
+        }
+        .userlogin{
+            margin-left:40%;
+            height: 20px;
+        }
+        .passlogin{
+            margin-left:40%;
+            height:20px;
+        }
+        .buttonlogin{
+            margin-left:42%;
+            width: 100px;
+            height: 30px;
+        }
+        .templogin{
+            margin-left:40%
+        }
+    </style>
+    <script>
+        
+        function newuser(){
+            const user=document.getElementById('username').value
+            const pass=document.getElementById('password').value
+        
+            
+            const data={username:user,password:pass}
+            
+            console.log(data)
+            
+            const retrieve={
+                method: "POST",
+                body:JSON.stringify(data), 
+                headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            
+            }};
+
+            
+            fetch("http://localhost:8000/",retrieve)
+                .then(Response=>Response.json())
+                .then(Response=>{
+                    console.log(Response)
+                
+                      
+            });
+            
+    }
+        function loginuser(){
+            const loguser=document.getElementById('loginuser').value
+            const logpass=document.getElementById('loginpass').value
+        
+            
+            const data1={username1:loguser,password1:logpass}
+            
+            console.log(data1)
+            
+            const retrieve={
+                method: "POST",
+                body:JSON.stringify(data1), 
+                headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            
+            }};
+
+            
+            fetch("http://localhost:8000/login/",retrieve)
+                .then(Response=>Response.json())
+                .then(Response=>{
+                    console.log(Response)
+                    
+                      
+            });
+        
+        
+    }
+       
+        
+        
+            
+        
+    
+    </script>
+    <hi>Create new account:</hi>
+    <input  id='username'placeholder="Username" type="text" ></input>
+    <input  id='password'placeholder="Password" type="password"></input>
+    <button onclick="newuser()">Submit</button>
+    <h1 class="titlelogin">Login page</h1>
+    <input id='loginuser'class="userlogin" placeholder="Username" type="text"></input>
+    <h5 class="templogin"></h5>
+    <input id='loginpass'class="passlogin" placeholder="Password" type="password"></input>
+    <h5 class="templogin"></h5>
+    <button class="buttonlogin" onclick="loginuser()"> Login</button>
+</body>
+</html>

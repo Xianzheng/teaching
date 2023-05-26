@@ -1,0 +1,13 @@
+//install express server
+
+npm install express
+
+//install cors
+
+npm install cors
+
+//create a small server
+
+//cors -> cross-origin resourse sharing
+
+//ctrl + c ->quit server

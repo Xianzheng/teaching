@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* remove all default margin and padding */
+        *{
+            margin:0;
+            padding:0;
+        }
+        
+        html{
+            height:100%;
+        }
+        body{
+            height:100%;
+        }
+        .container{
+            background-image: linear-gradient(to right, #fbc2eb, #a6c1ee);
+            height: 100%;
+        }
+        .loginForm{
+            background-color: #fff; /* set div loginForm to white color*/
+            width: 358px;
+            height:588px;
+            border: 1px solid;
+            border-radius: 15px;
+            position: relative;
+            left:50%;
+            top:50%;
+            transform: translate(-50%,-50%);
+            
+        }
+        .header{
+            font-size:38px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 200px;
+        }
+
+        .inputStyle{
+            margin:20px;
+        }
+
+        
+        .input-item{
+            display: block;
+            width: 80%;
+            margin: 0 auto;
+            margin-bottom:20px;
+            border: 0;
+            padding: 10px;
+            border-bottom: 1px solid rgb(128,125,125);
+            font-size: 15px;
+            outline: none;
+        }
+
+        .btn{
+            text-align: center;
+            background-image: linear-gradient(to right,#a6c1ee,#fbc2eb);
+            width: 80%;
+            margin-left:30px;
+            padding: 5px;
+            margin-top: 40px;
+            color: #fff;
+            outline: none;
+        }
+        .msg{
+            text-align: center;
+            line-height: 80px;
+        }
+
+        a{
+            text-decoration: none;
+            color: #abc1ee
+        }
+
+    </style>
+    <script>
+        function clickLogin(){
+            console.log('login button was clicked')
+            const uid = document.getElementById('uid').value
+            const pwd = document.getElementById('pwd').value
+            const option = {
+                method :'POST',
+                headers: {
+                    "Content-type":'application/json',
+                    accept:'application/json',
+                },
+                body: JSON.stringify({
+                    uid: uid,
+                    pwd: pwd,
+                })
+            }
+            const url = 'http://127.0.0.1:3000/dealLogin/'
+            fetch(url,option)
+            .then(res => res.json())
+            .then(res => {
+                console.log(res.msg)
+                if(res.msg == 'success'){
+                    console.log('yes')
+                    window.location.href = './mainPage.html'
+                }else{
+                    alert('username and password does not match')
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <div class = 'container'>
+        <div class = 'loginForm'>
+            <div class = 'header'>Login</div>
+            <div class = 'form-wrapper'>
+                <input id = 'uid' placeholder="username" class = 'input-item'>
+                <input id = 'pwd' placeholder="password" class = 'input-item' 
+                type = 'password'/>
+                <!-- <button style = 'margin-left: 20px;'>Submit</button> -->
+                <button onclick = 'clickLogin()' class = btn>Login</button>
+            </div>
+            <div class = 'msg'>
+                Don't have account?
+                <a href = "Signup.html">Signup</a>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
+
+<!-- 
+    write comment
+    create your own login page
+ -->

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+
+</head>
+<body id = 'body'>
+
+    <script>
+        
+        const options = {
+           method: "GET",
+            
+           headers: {
+           "Content-Type": "application/json",
+           Accept: "application/json",
+           
+           },
+       };
+
+       fetch("http://markfang.natapp1.cc/", options)
+           .then((response) => response.json())
+           .then((response) => {
+           console.log(response);
+           var item = response
+           var p = document.createElement("P");
+            p.innerHTML = 'name: &nbsp &nbsp &nbsp' + item.name 
+            + '&nbsp &nbsp &nbsp age: &nbsp &nbsp &nbsp ' + item.age
+            + '&nbsp &nbsp &nbsp job:&nbsp &nbsp &nbsp ' + item.job
+            document.body.appendChild(p);
+           
+       }).catch(console.log('error'));
+      
+
+   </script>
+    
+</body>
+</html>
+
+<!--
+    you need to set a backend with django you need to open cors-headers( full name django-cors-headers)
+    set up a front-end simple html file
+    you want to fetch some data from backend
+    then you need to render the data to your page
+     
+    name subjects testScores
+
+    mark   gym     50
+    ....
+    ....
+    ....
+-->

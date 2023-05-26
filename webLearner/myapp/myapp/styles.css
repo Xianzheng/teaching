@@ -1,0 +1,41 @@
+.table1{
+    border:1px solid black;
+    width: 100% ;
+    height: 50px;
+}
+.table2{
+    border:1px solid black;
+    width: 100% ;
+    height: 800px;
+}
+.table3{
+    border:1px solid black;
+    width: 100% ;
+    height: 50px;
+}
+.solid{
+    border:1px solid black;
+    
+}
+.inpinfo{
+    float: right;
+    margin-right: 70%;
+}
+.inpinfo1{
+    float: right;
+    margin-top: 35px;
+    margin-right: 70%;
+}
+.inpinfo2{
+    float: right;
+    margin-top: 55px;
+    margin-right: 70%;
+}
+.inpinfo3{
+    float: right;
+    margin-top: 75px;
+    margin-right: 70%;
+}
+.div1{
+    display:none;
+}

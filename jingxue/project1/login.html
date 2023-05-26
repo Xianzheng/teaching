@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LogIn</title>
+  </head>
+
+  <script>
+    function logIn() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      console.log(username, password);
+      const options = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          accept: "application/json",
+        },
+        body: JSON.stringify({
+          username: username,
+          password: password,
+        }),
+      };
+      const url = "http://localhost:3000/POSTLOGIN/";
+      fetch(url, options)
+        .then((res) => res.json())
+        .then((res) => {
+          console.log(res);
+          if (res.msg == "exist") {
+            localStorage.setItem("username", username); //在缓存里加入username
+            window.location.href = "mainPage.html";
+          } else {
+            alert("username or password incorrect");
+          }
+        });
+    }
+  </script>
+  <style>
+    
+    html{
+      height: 100%;
+    }
+    body{
+      height:100%
+    }
+    .container{
+      height: 100%;
+      background-image: linear-gradient(to right, #fbc2eb,#a6c1ee);
+    }
+
+    .login-wrapper{
+      background-color: #fff;
+      width: 358px;
+      height: 488px;
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      border-radius: 15px;
+      padding: 0 50px;
+
+    }
+    .header{
+      font-size: 38px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 200px;
+    }
+    .input-item{
+      display: block;
+      width: 100%;
+      margin-bottom: 20px;
+      border: 0;
+      border-bottom: 1px solid rgb(128,125,125);
+      outline: none;
+      padding: 10px;
+      font-size: 15px;
+    }
+    /* write comment for eachline in style */
+    /* make style for main page */
+    .btn{
+      width: 100%;
+      background-image:  linear-gradient(to right, #fbc2eb,#a6c1ee);
+      border: none;
+      /* outline:none; */
+      padding: 5px;
+      color: #fff;
+      border-radius:5px;
+      margin-bottom: 20px;
+    }
+
+    a{
+      text-decoration-line: none;
+      color: #ABC1EE;
+    }
+
+    .msg{
+      text-align: center;
+    }
+  </style>
+
+  <body>
+    <div class = 'container'>
+      <div class = 'login-wrapper'>
+        <div class = 'header'>Login</div>
+        <input
+          class = 'input-item'
+          id="username"
+         
+          placeholder="username"
+        />
+        <input
+          class ='input-item'
+          id="password"
+          placeholder="password"
+        />
+        <div>
+          <button class = "btn" onclick="logIn()">LogIn</button>
+        </div>
+        <div class = "msg">
+        Don't have accout?
+        <a
+          href="http://127.0.0.1:5500/signUp.html"
+          >SignUp</a
+        >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+//useStateuseEffect Demo
+import React,{useState, useRef} from "react";
+import ClearIcon from "@material-ui/icons/Clear";
+
+
+
+export default function UseEffect(){
+    const [a,setState] = useState([
+        {id:0,text:'Hello Kevin'},
+        {id:1, text:'Hello Justin'},
+        {id:2,text:'Hello Mark'}
+    ])
+
+    const inpRef = useRef()
+
+    const Style = {
+        divStyle:{
+            border:"1px solid",
+            marginLeft :'30%', 
+            marginRight:'30%',
+            marginTop:'5%',
+            display:'block'
+        },
+        TextStyle:{
+            marginLeft:'5%',
+        },
+        Center:{
+            display:'flex',
+            justifyContent:'center',
+            alignItems:'center',
+        }
+    }
+
+   
+    const handleAdd = () =>{
+        
+        setState([
+            ...a,
+            {id:a.length, text:'Hello '+inpRef.current.value}
+        ])
+    }
+
+    const handleChange = (i) =>{
+
+        console.log(i.index)
+        setState((info) =>{
+            return info.filter((prev) =>{
+                console.log(prev.id)
+                return prev.id !== i.index
+            })
+        })
+    }
+
+
+    return (
+        <div>
+            <div style = {Style.divStyle}>
+                
+                { a.map((item,index)=>{
+                    return (
+                    <div key = {index} style = {Style.Center}>
+                        <h1  style = {Style.TextStyle}>{item.text}</h1>
+                        <button onClick = {() => handleChange({index})}><ClearIcon/></button>
+                    </div>)
+                })}
+            </div>
+            <div style = {Style.Center}>
+                <input ref = {inpRef} />
+                <button onClick = {handleAdd}>Add</button>
+            </div>
+        </div>
+        
+        
+    )
+}
+

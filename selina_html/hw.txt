@@ -1,0 +1,9 @@
+create a username and password pool in backend
+
+input username and password in login page,
+
+ and see if correct username and password can login,
+
+after login, jump into mainPsge.html(login success)
+
+(create new hwserver.js, login.html, maiPage.html)
