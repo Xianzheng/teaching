@@ -1,7 +1,10 @@
+
 function loginClick(){
+    alert('welcome login')
     const email = document.getElementById('loginEmail').value
     const password = document.getElementById('loginPassword').value
-    
+    alert('email is '+email)
+    alert('password is '+password)
     const option = {
 
         method :'POST',

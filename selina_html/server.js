@@ -31,6 +31,7 @@ app.get('/howAreYou/',(req,res) =>{
 })
 
 app.post('/dealLogin/',express.json(),(req,res) => {
+  console.log(req.body)
   const fakeDb = [
     {uid:'a@a.com',pwd:'a12345'},
     {uid:'b@b.com',pwd:'s56789'},
@@ -59,3 +60,12 @@ app.post('/dealLogin/',express.json(),(req,res) => {
     res.send({msg:'success'})
   }
 })
+/*
+
+1. set up signup function
+(make sure we are in sign up page, click submit we can get alert)
+
+2.make sure we can get alert about email address, password info, confirm password
+
+3. transfor info to backend, at least show in our terminal
+*/
