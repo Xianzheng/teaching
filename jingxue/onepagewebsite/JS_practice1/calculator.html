@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        tr {
+            border: 1px solid;
+            margin-left: 10px;
+        }
+
+        td {
+            border: 1px solid;
+            margin-left: 10px;
+            text-align: center;
+        }
+
+        table {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td colspan=3><span id = 'screen'>0</span></td>
+            <td>C</td>
+        </tr>
+        <tr>
+            <td><a id = 'a1' onclick="btn1()">1</a></td>
+            <td><a id = 'a2' onclick="btn2()">2</a></td>
+            <td>3</td>
+            <td>÷</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>x</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>.</td>
+            <td><a id = 'a=' onclick="equalbtn()" >=</a></td>
+            <td> <a id = 'a+' onclick="addbtn()" >+</a></td>
+        </tr>
+    </table>
+    <script>
+        function btn1(){
+            a1 = document.getElementById('a1').innerHTML
+            screen = document.getElementById('screen')
+
+            if(screen.innerHTML == 0){
+                screen.innerHTML = a1
+            }else{
+                screen.innerHTML += a1
+            }
+            // alert(a1)
+        }
+
+        function btn2(){
+            a2 = document.getElementById('a2').innerHTML
+            screen = document.getElementById('screen')
+            
+            // alert(a1)
+            if(screen.innerHTML == 0){
+                screen.innerHTML = a2
+            }else{
+                screen.innerHTML += a2
+            }
+            
+        }
+
+        function addbtn() {
+            // alert('hello')
+            addsign = document.getElementById('a+').innerHTML
+            console.log(addsign)
+            screen = document.getElementById('screen')
+
+            screen.innerHTML += addsign
+        }
+
+        function equalbtn(){
+            // alert('this is equal')
+            screen = document.getElementById('screen')
+            screenContent = screen.innerHTML
+           
+            lst = screenContent.split('+')
+            sum = 0
+            for(let i=0; i<2; i++){
+                sum += parseInt(lst[i])
+            }
+            // console.log(sum)
+            screen.innerHTML = sum.toString()
+        }
+    </script>
+</body>
+
+</html>
+
+// implement operation in calculator
+
+// practice table, using table to do a menu
+
+// using backend, and frontend do a login system

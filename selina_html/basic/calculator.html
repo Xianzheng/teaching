@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title> calculator </title>
+
+ 
+
+<style>
+
+  tr {
+
+    border: 1px solid; /*draw the lines/ squares around each number */
+
+  }
+
+  td{
+
+    border: 1px solid;
+
+    border-radius: 2px; /*make the lines/ squaresmore round */
+
+    text-align: center; /*puts the letter in the middle of its square */
+
+  }
+
+  table{
+
+    width: 300px; /*make the lines/ squaresmore bigger */
+
+    height: 300px;
+
+    margin: 0 auto; /*puts the table in the middle of the width */
+
+  }
+
+</style>
+
+ 
+
+</head>
+
+<body>
+
+ 
+
+<table>
+
+  <tr>
+
+    <td colspan="3"><div id = "screen">0</div></td> <!-- takes 2 squares  -->
+
+    <td>C</td>
+
+  </tr>
+
+  <tr>
+
+    <td><div onclick="numClickable('key1')" id = "key1">1</div></td>
+
+    <td><div onclick="numClickable('key2')" id = "key2">2</div></td>
+
+    <td><div onclick="numClickable('key3')" id = "key3">3</div> </td>
+
+    <td><div>/</div></td>
+
+  </tr>
+
+  <tr>
+
+    <td>4</td>
+
+    <td>5</td>
+
+    <td>6</td>
+
+    <td>x</td>
+
+  </tr>
+
+  <tr>
+
+    <td>7</td>
+
+    <td>8</td>
+
+    <td>9</td>
+
+    <td>-</td>
+
+  </tr>
+
+  <tr>
+
+    <td>0</td>
+
+    <td>.</td>
+
+    <td><div onclick="calculate()" >=</div></td>
+
+    <td><div onclick="numClickable('plus')" id = "plus">+</div> </td>
+
+  </tr>
+
+</table>
+
+ 
+
+<script>
+  function get(name){
+
+    return document.getElementById(name)
+
+  }
+
+  function numClickable(id){
+
+    let s = get('screen')
+
+    if (s.innerHTML == 0){
+      get('screen').innerHTML = get(id).innerHTML
+
+    }else{
+
+      get('screen').innerHTML += get(id).innerHTML
+
+    }
+    
+  }
+
+  function calculate(){
+    let s = get('screen')
+    let screenValue= s.innerHTML
+
+    let lst = screenValue.split('+')
+
+    let sum = 0
+
+    for(let i = 0; i< lst.length; i++){
+      sum += parseInt(lst[i])
+    }
+
+    s.innerHTML = sum
+
+  }
+
+
+
+</script>
+
+ 
+
+</body>
+
+</html>
+<!-- 
+  hw:
+  let 1,2,3,4,5,6,7,8,9 can be clickable
+
+  and there are can do plus calculation
+-->

@@ -3,11 +3,41 @@
 const express = require("express")
 // load cors can let our front end and backend get communication
 var cors = require("cors")
- 
+//load nedb to create databse(to store data)
+var Nedb = require("nedb")
 //using express library as app
 const app = express(); //run server
 app.use(cors())
 app.use(express.json())
+
+var signUpdb = new Nedb(
+  {
+    filename: 'signup.db',
+    autoload: true,
+  }
+)
+
+app.get('/addData/',(req,res) =>{
+  signUpdb.insert({uid:'Selina',pwd:123})
+  signUpdb.insert({uid:'Mark',pwd:123})
+  signUpdb.insert({uid:'Kevin',pwd:123})
+  res.send('add success')
+})
+
+app.get('/find/',(req,res) => {
+  signUpdb.find({pwd:123},(err,doc) =>{
+    // if there is a error, report error info
+    if (err){
+      console.log(err)
+    }
+    // if find something related to {uid:'Selina'} show info
+    if (doc){
+      console.log(doc)
+      res.send('find info')
+    }
+  })
+})
+//create a server, create a dababase(you can define database name by yourself, try to add some data to db, do search by what you want, if you finish then send me server.js)
 //3000 is port which will be listening for this program
 app.listen(3000,()=>{ //pot thing
   console.log('server running at port 3000')
@@ -60,12 +90,37 @@ app.post('/dealLogin/',express.json(),(req,res) => {
     res.send({msg:'success'})
   }
 })
-/*
 
-1. set up signup function
-(make sure we are in sign up page, click submit we can get alert)
+app.post('/dealSignUp/',express.json(),(req,res) =>{
+  console.log('received data is ',req.body)
+  console.log(req.body.uid)
+  // we need to check is there is a user already taken this uid
+  // if does not we need to let it register
+  // if does, we would not let it register
+  signUpdb.find({uid:req.body.uid},(err,doc) => {
+    //if doc's length > 0 means there is no uid was taken, we can register
+    // else it means this uid already was token
+    if(doc.length > 0){
+      res.send({msg:'this email was taken, please try another one'})
+    }else{
+      signUpdb.insert(req.body)
+      res.send({msg:'sign up successfully'})
+    }
+  })
 
-2.make sure we can get alert about email address, password info, confirm password
+})
 
-3. transfor info to backend, at least show in our terminal
+/* homework
+
+  try to using data from database to login
+  
+  check is login email and login password in databse, 
+  alert login successfully
+
+  else
+
+  alert username or password does not exist
+ 
+next class talk how to do check signup confirm, login, and after login
 */
+

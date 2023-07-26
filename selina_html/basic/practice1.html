@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+    <input id='inp1'/> + <input id='inp2'/> = <span id='result'></span> <button onclick="add()">cal</button>
+    <div></div>
+    <input id='inp1_2'/> * <input id='inp2_2'/> = <span id='result_2'></span> <button >cal</button>
+    <script>
+        function add(){
+            // we have some mistake in this function, fix it for your hw
+            // document.getElementById('inp1').value is a string
+            let i = document.getElementById('inp1').value
+            let j = document.getElementById('inp2').value
+           
+            console.log(i + j)
+
+            document.getElementById('result').innerHTML= i + j
+
+        }
+
+        function multiply(){
+
+        }
+    </script>
+</body>
+</html>
+<!-- 
+    hw:
+     1. fix add function
+     2. implement multiply functuib
+ -->

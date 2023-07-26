@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .imgDiv{
+            /* border:2px solid red; */
+            width: 350px;
+            height:200px;
+            margin: 50px auto
+        }
+    </style>
+</head>
+<body>
+    <div id="show">
+
+    </div>
+    <script>
+
+        function auto(){
+            console.log('HELLO THIS IS AUTO')
+            // fetch to backend
+            // ask back to read uploads fold to see
+            // how many jpg files in uploads
+            const options = {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  accept: "application/json"
+                },
+
+              };
+              const url = "http://localhost:3000/getImageLst/";
+              fetch(url, options)
+                .then((res) => res.json())
+                .then((res) => {
+
+                    res.msg.forEach(element => {
+                        // console.log(element)
+                         const root = document.getElementById('show')
+
+                        const addDiv = document.createElement('div')
+
+                        addDiv.setAttribute('class','imgDiv')
+
+                        const addImg = document.createElement('img')
+                        addImg.setAttribute('src','../backend/uploads/'+element)
+                        addImg.setAttribute('width','350px')
+                        addImg.setAttribute('height','200px')
+
+                        addDiv.append(addImg)
+                        root.append(addDiv)
+                    });
+                   
+                });
+
+        }
+        window.onload = auto()
+    </script>
+</body>
+</html>
