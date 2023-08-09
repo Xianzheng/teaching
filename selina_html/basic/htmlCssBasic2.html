@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inline-block </title>
+    <style>
+        /* inline-block */
+        .flowLayout{
+            /* flowlayout */
+            width:260px;
+            height:220px;
+            background-color: lightblue;
+            margin: 20px auto;
+            margin-left:200px;
+            display:inline-block;
+
+        } 
+
+        /* GridLayout  */
+        .GridLayout{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            row-gap: 30px;
+        }
+
+        .box{
+            width:260px;
+            height:220px;
+            background-color: lightblue;
+            
+        }
+
+        /* flex */
+        .flexLayout {
+            background-color: lightpink;
+            display: flex;
+            flex-direction: row;
+            height:100px;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        .box2{
+            
+            background-color: lightcoral
+        }
+
+        
+    </style>
+</head>
+<body>
+    <!-- <div class = GridLayout>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    <div> -->
+
+    <div class = 'flexLayout'>
+        <div class = 'box2'>text2</div>
+        <div class = 'box2'>text3</div>
+        <div class = 'box2'>text4</div>
+        <div class = 'box2'>text5</div>
+    </div>
+    </div>
+    
+</body>
+</html>
+<!-- 
+    homework:
+    try layout base on your understanding
+
+    1. flowlayout(single layout)
+
+    Nested Layout
+    
+    2. grid layout: try only 1 column, 2 column, 3 column
+    3. flex layout: 
+ -->
