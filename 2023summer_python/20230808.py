@@ -34,7 +34,7 @@ accountA.withdraw(5)
 
 '''
 create a class:
-\
+
 think some thing in your life
 add some attribute to instance of class
 add some method to instance of class
