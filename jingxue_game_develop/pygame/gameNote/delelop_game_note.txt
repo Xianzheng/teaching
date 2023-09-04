@@ -1,0 +1,15 @@
+# create virtual environment
+
+python -m venv venv
+
+# pip list (show library installed in your current environment)
+
+# enter virtual environment
+
+.\venv\Scripts\activate
+
+# after we see (venv), means we already enter virtual environment
+
+# install pygame library
+
+pip install pygame # it only need install once
