@@ -1,0 +1,17 @@
+single if statement:
+
+	if condition is True, statement will be executed
+
+	statement will not be executed
+
+if else statement:
+
+	if condition is True, statement1 will be executed
+
+	if condition is False, statement2 will be executed
+
+
+hw: 
+	choose a backdrop you like, let cat keep move from right
+	
+	to left, and move from top to bottom
