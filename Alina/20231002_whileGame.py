@@ -90,15 +90,25 @@ print('python already generate a random number between 1 - 10')
 print()# it will print a empty line
 # input in terminal(we talked)
 
-n = int(input('please type a integer to match random number:'))
-
-# if equals(practice : if r equals(==) with n , print win, else print lose)
-
-if r == n:# random equals input number
-    print('win',end='\n\n')
-else:
-    print('lose')
-    print('random number is', r)
 
 #how to give us 3 oppertunity to guess
+i = 0
+
+while i < 10:
+    
+    n = int(input('please type a integer to match random number:'))
+
+    # if equals(practice : if r equals(==) with n , print win, else print lose)
+
+    if r == n:# random equals input number
+        print('win',end='\n\n')
+        break
+    else:
+        print('lose')
+
+    i += 1
+
+print('random number is', r)
+
+
 
