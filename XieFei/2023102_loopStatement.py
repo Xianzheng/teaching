@@ -77,5 +77,16 @@ print(sum)
 
 # print all odd numbers between 1 to 100
 
-# get factorial 10 !, 10 * 9 * 8 * ... * 1
+# get factorial 10!, 10 * 9 * 8 * ... * 1
+
+i = 1
+while i < 100:
+    print(i)
+    i += 2
+
+
+i = 2
+while i < 100:
+    print(i)
+    i += 2
 
