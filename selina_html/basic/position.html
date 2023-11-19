@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        .pos {
+            /* position:relative is positioned relative to normal position */
+
+            /* position: fixed; is positioned relative to the view port 
+            /which means always  stays in the same place, you determin the
+            left right top bottom*/
+
+            /* 
+            absolute: is positioned relative to the rearest position ancestor 
+            (instead of positioned relative to the view port, like fixed)
+            */
+
+            /*
+            position: sticky:display:  is positioned based on the user's 
+            scroll position;
+            */
+        }
+        
+
+        .div1{
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            position: fixed;
+            left: 105px;
+            top: 80px;
+            background-color: aqua;
+        }
+
+        .div2{
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            position: fixed;
+            left:105px;
+            
+            background-color: brown;
+        }
+
+        .headBar{
+
+            width: 1060px;
+            height: 40px;
+            position: sticky;
+           
+            top:0;
+            border:1px solid;
+
+        }
+
+        .sideBar{
+            width: 40px;
+            height: 20000px;
+            position: sticky;
+            left: 0;
+            top: 0;
+            border: 1px solid;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- <div class = 'div1'></div>
+    <div class = 'div2'></div> -->
+
+    <div class = 'headBar'></div>
+    <div class = 'sideBar'></div>
+    
+    
+</body>
+
+<!-- 
+    try 4 position method:
+
+    relative, absolute, fixed, sticky
+
+
+ -->
+</html>

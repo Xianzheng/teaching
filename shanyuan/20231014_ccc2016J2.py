@@ -50,6 +50,7 @@ else:
 #concise
 '''
 
+'''
 inp = list(map(int,input().split()))
 
 lst = [0]
@@ -69,6 +70,21 @@ for i in lst:
 
 # THINK 2018 J4
 #https://www.cemc.uwaterloo.ca/contests/computing/past_ccc_contests/2018/stage%201/juniorEF.pdf
+
+'''
+def rotate(lst):
+
+    '''
+    params: two dimensional lst
+    return: after rotate
+    '''
+    pass
+
+
+lst = [[4,3,1],[6,5,2],[9,7,3]]
+
+print(rotate(lst))
+# we will get[[9,6,4],[7,5,3],[3,2,1]]
 
 
 

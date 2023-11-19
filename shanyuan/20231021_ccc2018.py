@@ -132,3 +132,8 @@ rPrint(1)
 # use while loop do this question
 # (*)consider using recursive way to do this question
 # (*)consider to use recursive get 1 + 2 + 3 ... 10
+
+def p(x):
+    if x == 1: return 1
+    else: return 2*(p(x-1)+1)
+print(p(10))

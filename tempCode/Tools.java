@@ -78,4 +78,36 @@ public class Tools {
 
     }
 
+    static ListNode mnl(int[] nums) {
+        // 获取nums 多长
+        int len = nums.length;
+        /*
+         * 根据 nums 里的每个数字，创造出对应的Node
+         * 在把这个Node放到一个Array里返回
+         */
+
+        ListNode[] result = new ListNode[len];
+
+        for (int i = 0; i < len; i++) {
+
+            ListNode n = mn(nums[i]);
+
+            result[i] = n;
+        }
+
+        for (int i = 0; i < len; i++) {
+            if (i == len - 1) {
+                result[i].next = null;
+                break;
+            }
+
+            int nextIndex = i + 1;
+
+            result[i].next = result[nextIndex];
+
+        }
+
+        return result[0];
+    }
+
 }
