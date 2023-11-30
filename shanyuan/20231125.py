@@ -162,23 +162,60 @@ def allPossibleSlice(string):
 
 def parse(string):
     lst = allPossibleSlice(string)
-    print(lst)
-    change(lst)
+    possibleChange = []
+    for item in lst:
+        if change(string,item) != None:
+            possibleChange.append(change(string,item))
+    return possibleChange
+
+def change(string,lst):
+    '''
+    receive all possible slice and it position 
+
+    return changd string
+    '''
+    if lst[0] in dic:
+        lstring = list(string)
+        lstring[lst[1][0]:lst[1][1]] = dic[lst[0]]
+        return ''.join(lstring)
+    else: return None
+        
 
 
-def change(lst):
-    pass
-print(parse('AB')) # [BB,AAA]
-# print(parse('BB')) # [AAB,BAA]
-# print(parse('AAA')) # [ABA,AAB]
+# print(parse('BB')) # [BB,AAA]
+
+class Node:
+
+    def __init__(self,value):
+        self.value = value
+        self.next = []
+
+root = Node('AB')
+for i in parse('AB'):
+    root.next.append(Node(i))
+
+    
+# NEXT WE WILL discuss GENERAL TREE\
+
 '''
+1.try to build a general tree, explore
+
+2.make rule by your self, do parse again like in class
+
+3. check J5 of 2018
+    https://www.cemc.uwaterloo.ca/contests/computing/past_ccc_contests/2018/stage%201/juniorEF.pdf
+
+   check J5 of 2020
+   https://www.cemc.uwaterloo.ca/contests/computing/past_ccc_contests/2020/ccc/juniorEF.pdf
+
+
 GENERAL TREE
 RECURSIVE TO LOOP
 '''
 
 '''
 dic = {key1:value1,key2:value2,key3:value3}
-'''
+
 #create empty dictionary
 dic = {}
 # add key-value pair to dictionary
@@ -200,3 +237,4 @@ print(dic['c'])
 #     print(i)
 
 print('a' in dic)
+'''

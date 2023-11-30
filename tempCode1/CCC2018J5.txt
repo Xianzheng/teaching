@@ -1,0 +1,17 @@
+	ListNode curr = head;
+        while (true) {
+            if (curr.next.pos == pos)
+                break;
+            curr = head.next;
+        }
+
+        ListNode newNode = new ListNode(7);
+        newNode.next = head.next;
+        head.next = newNode;
+        
+        int index = 0;
+        while (head != null) {
+            head.pos = index;
+            index += 1;
+            head = head.next;
+        }
