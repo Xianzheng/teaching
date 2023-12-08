@@ -44,4 +44,4 @@ def BFS(root):
         for i in temp.next:
             queue.append(i)
         print(temp.val)
-BFS(a)
+next(a)

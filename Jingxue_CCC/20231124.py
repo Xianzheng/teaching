@@ -113,26 +113,45 @@ print(checkTable(table2)) # False
 # print(sorted(lst))
 
 def rotate90(table):
-    # suppose table is 3 * 3
-    # create a empty table
-    # put [2][0],[1][0],[0][0] as fisst row of new table
-    # put [2][1],[1][1],[0][1] as second row of new table
-    # put [2][2],[1][2],[0][2] as third row of new table
+    # Suppose table is a square matrix (n x n)
+    n = len(table)
 
-    # return table
-    pass
+    # Create an empty table
+    newTable = [[0] * n for _ in range(n)]
+
+    # Rotate the elements 90 degrees
+    for i in range(n):
+        for j in range(n):
+            newTable[i][j] = table[n - j - 1][i]
+
+    return newTable
+
 
 def convertRowToColumn(table):
-    '''
-    suppose argument is [[1,2,3],[4,5,6],[7,8,9]]
-    return [[1,4,7],[2,5,8],[3,6,9]
-    '''
-    pass
+    # Use zip to transpose the table
+    transposedTable = list(map(list, zip(*table)))
+    return transposedTable
 
-def checkRowInOrder(table):
-    # check each row should be in order(from small to big)
-    # if it is return True, else return False
-    pass
+
+def checkRowinOrder(table):
+    # Check each row for order
+    for row in table:
+        if row != sorted(row):
+            return False
+    return True
+
+originalTable = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+rotatedTable = rotate90(originalTable)
+print("Rotated Table:")
+print(rotatedTable)
+
+transposedTable = convertRowToColumn(originalTable)
+print("\nTransposed Table:")
+print(transposedTable)
+
+inOrder = checkRowinOrder(originalTable)
+print("\nRows in Order:", inOrder)
 
 '''
 # implement 3 function
